@@ -1,0 +1,160 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "score": 25,
+      "status": "observed",
+      "evidence": "The supplied DappRadar summary reports NFT trading volume down 93% from its 2022 peak. In the parent test, 17 of 20 respondents identified toddler wallet usability as a barrier; the external citation lacks a direct report link and methodology.",
+      "rationale": "Declining ecosystem activity and substantial target-user readiness barriers support 25. No enabling change or demonstrated readiness supports 50 within the launch horizon.",
+      "q": 0.5,
+      "a": 0.75
+    },
+    {
+      "id": "C2",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "No usable segment sizing, attainable revenue estimate, category spending depth, or segment-specific 3–5-year forecast is supplied.",
+      "rationale": "Imputed 50 under the missing-evidence rule; neither adverse sizing nor a supported higher anchor is established.",
+      "q": 0,
+      "a": 0
+    },
+    {
+      "id": "C3",
+      "score": 25,
+      "status": "observed",
+      "evidence": "Threat of entry: unmeasured. Supplier power: platform dependence exists, but bargaining power is unmeasured. Buyer power: parents have several alternatives, including free apps. Substitutes: physical toys and stickers directly compete for entertainment spending. Rivalry: alternatives are identified, but competitive intensity is unmeasured.",
+      "rationale": "Buyer choice and strong substitutes create two adverse forces. No established value position or countervailing structural advantage supports 50.",
+      "q": 0.25,
+      "a": 0.75
+    },
+    {
+      "id": "C4",
+      "score": 0,
+      "status": "observed",
+      "evidence": "The described offer combines generated rock images, NFT minting, rarity tiers, and sticker animations. No exclusive resource, proprietary asset, network effect, or durable control mechanism is identified.",
+      "rationale": "The specified offer is readily replicable; this assessment rests on its described construction. No temporary head start supports 25.",
+      "q": 0.25,
+      "a": 1.0
+    },
+    {
+      "id": "C5",
+      "score": 25,
+      "status": "observed",
+      "evidence": "Parents are the identified payer and blind NFT packs provide a revenue mechanism. However, zero of 20 parents in the self-reported mockup test said they would pay.",
+      "rationale": "A revenue mechanism exists, but stated purchase rejection exposes a major value-exchange gap. The small hypothetical test does not establish universal unwillingness in principle, while its adverse result prevents 50.",
+      "q": 0.25,
+      "a": 1.0
+    },
+    {
+      "id": "C6",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "No pricing, variable costs, contribution margin, CAC, purchase frequency, LTV, payback, or profitability model is supplied.",
+      "rationale": "Imputed 50; missing unit economics cannot establish structurally negative economics or support a higher anchor.",
+      "q": 0,
+      "a": 0
+    },
+    {
+      "id": "C7",
+      "score": 0,
+      "status": "observed",
+      "evidence": "The solo founder reports no software, blockchain, or children's-product experience. No hiring, partnership, training, or capability-building response is supplied.",
+      "rationale": "The reported gaps cover the core capabilities needed to deliver this product, with no credible response established. No useful opportunity-specific capability supports 25.",
+      "q": 0.25,
+      "a": 1.0
+    },
+    {
+      "id": "C8",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "The 1–2-year commercialization horizon is an aspiration; no MVP schedule, founder effort estimate, capacity test, or delivery scaling model is supplied.",
+      "rationale": "Imputed 50; the evidence does not establish delivery scalability or quantify a time-to-revenue versus runway mismatch.",
+      "q": 0,
+      "a": 0
+    },
+    {
+      "id": "C9",
+      "score": 25,
+      "status": "observed",
+      "evidence": "Regulatory: the supplied FTC summary identifies parental-consent obligations where covered child data is collected, with no compliance plan; supplied Apple and removal claims have incomplete provenance. Technology: feasibility and child-safe architecture are untested. Market: screen-time objections remain unmitigated. Execution: no risk owners or contingencies are documented. Financial: no compliance-cost provision is documented.",
+      "rationale": "Unplanned child-data compliance creates a substantial exposure that could stop execution if applicable. No verified prohibition establishes 0, and no plausible documented mitigation supports 50.",
+      "q": 0.5,
+      "a": 0.75
+    },
+    {
+      "id": "C10",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "Physical toys, free apps, and stickers are listed as alternatives, but no usable evidence quantifies or directly demonstrates current buyer spending in the relevant category.",
+      "rationale": "Imputed 50 because market spending evidence is missing. This founder's concept-test rejection is not evidence that the broader market lacks spending.",
+      "q": 0,
+      "a": 0
+    },
+    {
+      "id": "C11",
+      "score": 50,
+      "status": "observed",
+      "evidence": "The founder is pre-launch, with no build, prototype usage, payments, or binding commitments demonstrated. The mockup test measured stated willingness rather than trial behavior.",
+      "rationale": "No traction yet qualifies for the normal pre-launch anchor of 50. No paid commitments support 75; stated purchase rejection is owned by C5 and does not establish behavioral rejection for 0.",
+      "q": 0.25,
+      "a": 1.0
+    },
+    {
+      "id": "C12",
+      "score": 25,
+      "status": "observed",
+      "evidence": "The founder has no capital and expects to raise VC on the concept. No funding commitment, capital budget, or milestone-based financing route is supplied.",
+      "rationale": "The financing route is speculative and unsupported, warranting 25. A plausible costed route does not support 50, while inaccessible financing from every possible source is not established for 0.",
+      "q": 0.25,
+      "a": 1.0
+    },
+    {
+      "id": "C13",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "No named acquirers, acquisition precedents, disclosed multiples, or strategic transaction evidence is supplied.",
+      "rationale": "Imputed 50; missing transaction evidence does not establish that plausible acquirers or acquisition activity are absent.",
+      "q": 0,
+      "a": 0
+    },
+    {
+      "id": "C14",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "The founder reports no access to parent communities. No proposed acquisition channel, recruitment method, buying funnel, or channel test is documented.",
+      "rationale": "Imputed 50; absent community access alone does not prove that a customer acquisition route cannot work or that existing acquisition is ad hoc.",
+      "q": 0,
+      "a": 0
+    }
+  ],
+  "blockers": [],
+  "strengths": [
+    "C11: The concept-stage absence of traction receives the normal 50 anchor; it does not independently condemn the market.",
+    "C5: The payer and transaction mechanism are explicit, although the value exchange has adverse preliminary evidence."
+  ],
+  "weaknesses": [
+    "C4: The described offer has no established imitation barrier or durable control mechanism.",
+    "C7: Reported capability gaps span software, blockchain, and children's products, with no concrete response.",
+    "C9: Potential child-data compliance obligations lack an operating plan and evidenced mitigation."
+  ],
+  "validation_priorities": [
+    {
+      "question": "Will parents commit money to this exact product, and does NFT ownership add value?",
+      "hypothesis": "Parents will make a refundable reservation for toddler rock collectibles, with stronger conversion for the NFT version than an otherwise equivalent conventional version.",
+      "observable": "Run a preregistered parent-only test with matched offers and disclosed prices; measure actual refundable reservations, conversion, and reasons for rejection.",
+      "decision": "Proceed only if paid conversion supports a predeclared minimum commercial threshold; remove NFTs if they reduce conversion, and stop if neither offer clears the threshold."
+    },
+    {
+      "question": "Can a compliant, platform-compatible version operate without toddler wallet interaction?",
+      "hypothesis": "Parent-managed purchasing and minimized child-data collection can satisfy applicable distribution and privacy requirements.",
+      "observable": "Produce a data-flow map, parent-managed interaction prototype, costed compliance plan, and documented review of current official platform and applicable privacy requirements.",
+      "decision": "Proceed only if the proposed flow has an evidenced permissible route and affordable compliance requirements; redesign or stop if either condition fails."
+    },
+    {
+      "question": "Can this founder fund and deliver a bounded MVP with a viable path to venture-scale revenue?",
+      "hypothesis": "Concrete capability coverage, accessible milestone funding, and bottom-up demand estimates support the stated objective.",
+      "observable": "Obtain scoped build estimates and named delivery partners; model capital to revenue and profitability, attainable customer counts, pack contribution, purchase frequency, and acquisition costs.",
+      "decision": "Proceed only with credible capability coverage and financing through the first validation milestone; revise the commercial objective or stop if downside revenue cannot support venture scale."
+    }
+  ]
+}
