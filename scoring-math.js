@@ -1,5 +1,11 @@
-/* Business Idea Scoring — math (SPEC V3, approved by Tân 2026-10-10; weights provisional, not simlab-calibrated)
+/* Business Idea Scoring — math (SPEC V4-revised, approved by Tân 2026-10-10, applied 2026-10-10)
  * Score = Σ(w_i × s_i)/100. Confidence = Coverage × Quality × Applicability.
+ * V4 weights: C1 7 / C2 12 / C3 7 / C4 4 / C5 7 / C6 8 / C7 10 / C8 7 / C9 6 /
+ *             C10 8 / C11 4 / C12 5 / C13 2 / C14 7 / F3 6 = 100.
+ * F3 (Category Trajectory Forecast 3–5y) weight 6 is Tân's decision but explicitly
+ * UNCALIBRATED (simlab could not validate a forward-looking criterion on a
+ * backward-looking fixture). Part A (Asymmetric Upside + Tracked Bets) is handled
+ * in prompt-builder.js output contract, not in the math.
  * Shared by: index.html (browser) and test/run-test.js (node).
  */
 (function (root, factory) {
@@ -7,8 +13,8 @@
   else root.BizIdeaMath = factory();
 })(typeof self !== "undefined" ? self : this, function () {
 
-const WEIGHTS = { C1: 7, C2: 12, C3: 7, C4: 5, C5: 8, C6: 8, C7: 10, C8: 7, C9: 8, C10: 8, C11: 4, C12: 5, C13: 3, C14: 8 };
-const ORDER = ["C1","C2","C3","C4","C5","C6","C7","C8","C9","C10","C11","C12","C13","C14"];
+const WEIGHTS = { C1: 7, C2: 12, C3: 7, C4: 4, C5: 7, C6: 8, C7: 10, C8: 7, C9: 6, C10: 8, C11: 4, C12: 5, C13: 2, C14: 7, F3: 6 };
+const ORDER = ["C1","C2","C3","C4","C5","C6","C7","C8","C9","C10","C11","C12","C13","C14","F3"];
 const VALID_SCORES = [0, 25, 50, 75, 100];
 
 function computeResults(llm) {
@@ -69,6 +75,8 @@ function computeResults(llm) {
     strengths: llm.strengths || [],
     weaknesses: llm.weaknesses || [],
     validationPriorities: llm.validation_priorities || [],
+    asymmetricUpside: llm.asymmetric_upside || null,
+    trackedBets: llm.tracked_bets || [],
     errors
   };
 }
