@@ -1,0 +1,161 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "score": 50,
+      "status": "observed",
+      "evidence": "The supplied Gartner reporting identifies governance and value-realization problems in agentic AI projects. This supports a relevant external problem, but does not establish readiness among US SMB buyers.",
+      "rationale": "Timing evidence is mixed. The 75 anchor requires a dated enabling change aligned with demonstrated segment readiness, which is absent.",
+      "q": 0.25,
+      "a": 0.5
+    },
+    {
+      "id": "C2",
+      "score": 50,
+      "status": "observed",
+      "evidence": "Supplied analyst estimates project substantial growth in the broader AI-agent market through 2030, while the KPMG adoption statistic concerns large enterprises. Neither establishes the addressable US SMB monitoring market or attainable revenue.",
+      "rationale": "Broad growth supports a plausible opportunity with substantial sizing uncertainty. The 75 anchor requires bottom-up SAM, bounded SOM, and independent willingness-to-pay evidence for the relevant opportunity.",
+      "q": 0.25,
+      "a": 0.25
+    },
+    {
+      "id": "C3",
+      "score": 50,
+      "status": "observed",
+      "evidence": "Entry: barriers are unmeasured; supplier power: platform and integration dependence is unmeasured; buyer power: SMB procurement and switching behavior are unmeasured; substitutes: manual checks and accepting failures exist; rivalry: developer-oriented incumbents exist, while the claimed SMB gap remains unverified.",
+      "rationale": "The evidence suggests mixed structure with a recognizable positioning hypothesis. The 75 anchor requires a documented structural advantage and credible responses to adverse forces.",
+      "q": 0.25,
+      "a": 0.5
+    },
+    {
+      "id": "C4",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "No controlled dataset, exclusive distribution, proprietary integration, switching-cost evidence, or tested imitation barrier is supplied.",
+      "rationale": "The score is imputed because defensibility is unassessed. Missing moat evidence does not establish adverse replicability or support an observed anchor.",
+      "q": 0,
+      "a": 0
+    },
+    {
+      "id": "C5",
+      "score": 50,
+      "status": "observed",
+      "evidence": "The proposal identifies US SMBs as payers and offers monitoring, alerts, and scorecards through a subscription priced per monitored agent. Payment acceptance and operating requirements remain untested.",
+      "rationale": "The payer, value exchange, and revenue mechanism are coherent. The 75 anchor requires demonstrated payment and understood operating requirements.",
+      "q": 0.25,
+      "a": 1.0
+    },
+    {
+      "id": "C6",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "No price, evaluation cost, storage cost, support burden, CAC, retention estimate, or dated profitability model is supplied.",
+      "rationale": "The score is imputed; even the observed 50 anchor's coherent unit math has not been provided. There is no evidence establishing unfavorable economics.",
+      "q": 0,
+      "a": 0
+    },
+    {
+      "id": "C7",
+      "score": 50,
+      "status": "observed",
+      "evidence": "The founder reports measurement-programming experience, development of more than 20 calibrated rubrics, and continuous operation of AI-agent workflows with evidence trails. SMB customer access, support-domain expertise, and commercial software delivery capability are not demonstrated.",
+      "rationale": "The reported background supports relevant measurement knowledge and some execution capability. The 75 anchor additionally requires strong opportunity-specific capabilities, customer access, and demonstrated learning.",
+      "q": 0.25,
+      "a": 0.75
+    },
+    {
+      "id": "C8",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "No MVP schedule, founder time budget, integration trial, capacity test, or time-to-revenue estimate is supplied.",
+      "rationale": "The score is imputed because repeatability, effort, and runway fit cannot be assessed. A proposed drop-in architecture does not demonstrate these properties.",
+      "q": 0,
+      "a": 0
+    },
+    {
+      "id": "C9",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "Regulatory: customer-data permissions and obligations unexamined; technology: no-code capture and detection accuracy untested; market: adoption and retention risks unassessed; execution: integration and incident-response responsibilities unmapped; financial: contingencies and residual exposure unquantified.",
+      "rationale": "The score is imputed because no usable five-category risk assessment or mitigation evidence is supplied. These open questions do not establish a documented stopping exposure or verified blocker.",
+      "q": 0,
+      "a": 0
+    },
+    {
+      "id": "C10",
+      "score": 50,
+      "status": "observed",
+      "evidence": "The supplied research reports enterprise payment for agent observability and funded alternatives including Braintrust, LangSmith, and Langfuse. Spending depth and purchasing behavior among US SMBs are not established.",
+      "rationale": "Category spending is partly evidenced, supporting 50 independently of founder traction. The 75 anchor requires stronger spending evidence; financing valuations alone do not demonstrate customer budgets or repeat purchases.",
+      "q": 0.25,
+      "a": 0.5
+    },
+    {
+      "id": "C11",
+      "score": 50,
+      "status": "observed",
+      "evidence": "The founder explicitly reports no product, pilot, customers, or traction.",
+      "rationale": "The 50 anchor explicitly includes the normal pre-launch state. The 75 anchor requires paid pilots or binding target-customer commitments and observed repeat use.",
+      "q": 0.25,
+      "a": 1.0
+    },
+    {
+      "id": "C12",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "The founder reports approximately $15,000 available and no outside funding, but supplies no capital requirements to revenue or profitability.",
+      "rationale": "The score is imputed because available funds alone cannot establish financing fit. No costed plan supports 75, and no demonstrated funding shortfall supports a lower anchor.",
+      "q": 0,
+      "a": 0
+    },
+    {
+      "id": "C13",
+      "score": 50,
+      "status": "observed",
+      "evidence": "The supplied research reports acquisition activity in adjacent enterprise monitoring categories, without named transactions, disclosed multiples, or an SMB-agent-QA precedent.",
+      "rationale": "Adjacent activity is usable but insufficient to establish any complete acquisition anchor, so 50 reflects unresolved optionality. Missing segment precedents do not prove their absence, and the 75 anchor lacks exact-category acquirers and supporting multiples.",
+      "q": 0.25,
+      "a": 0.25
+    },
+    {
+      "id": "C14",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "No acquisition channel, buyer-contact evidence, procurement process, initial funnel, or conversion test is supplied.",
+      "rationale": "The score is imputed because go-to-market access is unassessed. Neither reproducible acquisition nor adverse access conditions have been demonstrated.",
+      "q": 0,
+      "a": 0
+    }
+  ],
+  "blockers": [],
+  "strengths": [
+    "C5: An identified payer and coherent subscription value exchange provide a testable commercial hypothesis.",
+    "C7: Reported measurement and evidence-trail experience is relevant to quality assessment.",
+    "C10: External evidence supports an existing observability spending category independently of founder traction."
+  ],
+  "weaknesses": [
+    "C6: Missing pricing and cost evidence prevents assessment of contribution margin and profitability.",
+    "C8: Missing integration and delivery trials leave effort and time to revenue unresolved.",
+    "C14: No evidenced channel or buying process establishes access to target customers."
+  ],
+  "validation_priorities": [
+    {
+      "question": "Will US SMBs pay for independent agent QA, and through what repeatable buying process?",
+      "hypothesis": "SMBs with deployed support agents have a budget owner who will fund monitoring to reduce measurable failure costs.",
+      "observable": "Interview 15 qualified SMBs through one documented outreach channel; record existing spending, failure incidents, decision makers, and procurement steps, then offer a fixed-price paid pilot and measure commitments.",
+      "decision": "Proceed with the segment if at least three buyers accept paid pilots and identify a credible approval path; otherwise revise the segment, offer, or channel."
+    },
+    {
+      "question": "Can monitoring capture sufficient evidence and detect consequential failures without agent code changes?",
+      "hypothesis": "Supported platform logs or APIs provide enough data for accurate, low-effort monitoring.",
+      "observable": "Test two commonly used target-customer platforms using authorized, de-identified interactions; measure capture coverage, setup time, and precision and recall against independently reviewed failure labels.",
+      "decision": "Proceed with platforms that meet predefined customer requirements; narrow supported integrations or revise the no-code promise if coverage or accuracy fails."
+    },
+    {
+      "question": "Can a paid monitoring service reach profitability within the founder's capital and time constraints?",
+      "hypothesis": "Customers' accepted prices cover evaluation, storage, support, and onboarding while allowing a bootstrap path.",
+      "observable": "During paid pilots, measure variable costs and founder hours, test willingness to renew, and build a dated downside cash plan covering development, acquisition, fixed costs, and the $15,000 funding limit.",
+      "decision": "Proceed if measured contribution is positive and the downside plan reaches operating break-even within available resources; otherwise change scope, pricing, or delivery before further investment."
+    }
+  ]
+}
