@@ -1,0 +1,161 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "score": 50,
+      "status": "observed",
+      "evidence": "User reports growing AI-agent adoption and a Gartner cancellation forecast, but neither claim has corroborating sources. The forecast describes governance pressure rather than a demonstrated enabling change.",
+      "rationale": "The environment presents a plausible timing opportunity; 75 requires a dated enabling change aligned with demonstrated segment readiness.",
+      "q": 0.25,
+      "a": 0.5
+    },
+    {
+      "id": "C2",
+      "score": 50,
+      "status": "observed",
+      "evidence": "The supplied bottom-up SAM is $144M, with a year-three target of $1.8M ARR. The 40,000-business population is unverified, and sizing moves from businesses to monitored agents without establishing agents per buyer.",
+      "rationale": "Sizing plausibly supports an owner-operated business, but 75 requires independent willingness-to-pay evidence and cited growth sources for the relevant opportunity.",
+      "q": 0.25,
+      "a": 0.75
+    },
+    {
+      "id": "C3",
+      "score": 50,
+      "status": "observed",
+      "evidence": "Entry: barriers unexamined; supplier power: dependencies and switching options unexamined; buyer power: concentration and switching leverage unexamined; substitutes: manual checks and accepting failures; rivalry: Braintrust and LangSmith, reportedly poorly suited to SMBs.",
+      "rationale": "The supplied alternatives establish a recognizable position with competitive pressure. They do not establish the net-favorable structure and responses to every adverse force required for 75.",
+      "q": 0.25,
+      "a": 0.75
+    },
+    {
+      "id": "C4",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "No evidence establishes proprietary resources, switching costs, exclusive access, replication friction, or another durable defensibility mechanism.",
+      "rationale": "Imputed 50: missing defensibility evidence does not establish easy replication or justify an adverse score.",
+      "q": 0,
+      "a": 0
+    },
+    {
+      "id": "C5",
+      "score": 50,
+      "status": "observed",
+      "evidence": "The model identifies SMB payers and a monthly per-agent subscription in exchange for monitoring, alerts, evidence logs, and scorecards. Integration, support, and rollback operating requirements are not mapped.",
+      "rationale": "The payer and value exchange are coherent, but 75 requires understood operating requirements. Paid-pilot behavior is scored under C11.",
+      "q": 0.25,
+      "a": 1.0
+    },
+    {
+      "id": "C6",
+      "score": 50,
+      "status": "observed",
+      "evidence": "Reported pricing of $299/month and compute of approximately $40/month leave $259 before other variable costs. Reported CAC is $450, but its paying-customer denominator, support costs, retention, and fixed-cost coverage are unresolved.",
+      "rationale": "The preliminary unit math is coherent; 75 requires measured contribution after full variable costs, cohort payback, and a costed path to cover fixed costs.",
+      "q": 0.25,
+      "a": 1.0
+    },
+    {
+      "id": "C7",
+      "score": 50,
+      "status": "observed",
+      "evidence": "The founder reports measurement-science experience, scoring-rubric development, continuous agent operations, three production tools, and deployment post-mortems. SMB support-domain expertise and complementary commercial capabilities are not established.",
+      "rationale": "Relevant technical capability and learning are evidenced by self-report; 75 requires stronger opportunity-specific domain insight and coverage of key capabilities.",
+      "q": 0.25,
+      "a": 0.75
+    },
+    {
+      "id": "C8",
+      "score": 50,
+      "status": "observed",
+      "evidence": "The prototype proposes a repeatable monitoring layer with automated alerts and weekly reporting. Capacity, integration effort, founder hours, staffing requirements, and runway fit are not measured.",
+      "rationale": "A repeatable core is plausible, but scaling and effort remain uncertain. The capacity tests and explicit founder-time model required for 75 are absent.",
+      "q": 0.25,
+      "a": 0.75
+    },
+    {
+      "id": "C9",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "Regulatory: data handling and recording obligations unexamined; technology: monitoring accuracy and integration coverage unexamined; market: adoption and displacement exposure unexamined; execution: delivery ownership and contingencies unexamined; financial: runway and funding exposure unexamined.",
+      "rationale": "Imputed 50: no usable five-category risk assessment or evidenced mitigations are supplied, and no critical blocker is verified.",
+      "q": 0,
+      "a": 0
+    },
+    {
+      "id": "C10",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "Named alternatives establish possible category offerings but provide no documented competitor revenue, customer budgets, or purchases by the target segment. This founder's pilot is reserved for C11.",
+      "rationale": "Imputed 50 because independent category-spending evidence is missing; this is not a deduction for limited founder traction.",
+      "q": 0,
+      "a": 0
+    },
+    {
+      "id": "C11",
+      "score": 75,
+      "status": "observed",
+      "evidence": "The founder reports five target-SMB trials, three paid conversions at $299/month, and customer attribution to detected hallucinations. The reported 60-day retention cannot be reconciled with a September 2026 pilot and the October 10 assessment date.",
+      "rationale": "Reported paid pilots support 75. Replicated cohorts, reliable retention evidence, and examination of contrary evidence required for 100 are absent.",
+      "q": 0.25,
+      "a": 1.0
+    },
+    {
+      "id": "C12",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "Available capital, founder runway, capital-to-profitability estimates, and financing commitments are not stated.",
+      "rationale": "Imputed 50: financing fit cannot be assessed, and missing capital information does not establish inadequate financing.",
+      "q": 0,
+      "a": 0
+    },
+    {
+      "id": "C13",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "No strategic acquirers, precedent transactions, or disclosed acquisition multiples are supplied.",
+      "rationale": "Imputed 50: absent exit evidence does not establish that acquisition activity or plausible acquirers are absent.",
+      "q": 0,
+      "a": 0
+    },
+    {
+      "id": "C14",
+      "score": 50,
+      "status": "observed",
+      "evidence": "SMB community partnerships reportedly generated 30 acquired trials, establishing an initial channel and funnel. Separate channel cohorts, conversion stages, sales cycles, and partner concentration are not documented.",
+      "rationale": "An initial acquisition route supports 50; 75 requires separate tests demonstrating a reproducible process with understood conversion and sales-cycle constraints.",
+      "q": 0.25,
+      "a": 1.0
+    }
+  ],
+  "blockers": [],
+  "strengths": [
+    "C11: Reported paid target-customer pilots provide the strongest behavioral validation, subject to the retention-date inconsistency.",
+    "C7: Measurement and production-agent experience provide relevant technical foundations.",
+    "C5: An identified payer and per-agent subscription establish a coherent value-capture mechanism."
+  ],
+  "weaknesses": [
+    "C6: Full contribution costs, paying-customer CAC, and fixed-cost coverage remain unresolved.",
+    "C9: All five risk categories lack a documented assessment and tested mitigations.",
+    "C10: Independent evidence of spending in the exact target category is missing."
+  ],
+  "validation_priorities": [
+    {
+      "question": "Do paid customers retain and receive independently verified monitoring value?",
+      "hypothesis": "Detected failures are actionable, sufficiently accurate, and valuable enough to sustain $299/month renewals.",
+      "observable": "Reconcile dated trial, invoice, and renewal records; independently label sampled alerts and missed failures; track renewals and customer actions across two additional cohorts for 90 days.",
+      "decision": "Increase confidence in traction if renewals and verified value replicate; revise detection or positioning if false alerts, missed failures, or cancellations undermine value."
+    },
+    {
+      "question": "Can delivery and acquisition support profitability within founder resources?",
+      "hypothesis": "Full variable costs leave positive contribution, and repeatable acquisition pays back within available runway.",
+      "observable": "Measure onboarding and support hours, all infrastructure costs, trial-to-paid conversion, paying-customer CAC, and founder capacity across separate partnership cohorts; build a dated fixed-cost and cash-flow model.",
+      "decision": "Proceed with scaling only if measured economics and capacity support a financed path to profitability; otherwise change pricing, delivery scope, or channel."
+    },
+    {
+      "question": "Does the exact SMB segment already fund this category, and can monitoring operate within its constraints?",
+      "hypothesis": "Target buyers have recurring budgets for agent QA and will authorize integrations that provide adequate action visibility.",
+      "observable": "Collect redacted alternative invoices or budget records from target buyers and test representative chat and voice integrations for coverage, permissions, data handling, and mitigation ownership.",
+      "decision": "Raise demand and risk confidence if spending and workable integrations are documented; narrow the segment or integration promise if budgets or necessary access are absent."
+    }
+  ]
+}
