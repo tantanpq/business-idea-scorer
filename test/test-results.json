@@ -1,0 +1,326 @@
+[
+ {
+  "name": "GOOD — Stability Engine (QA for SMB AI agents)",
+  "score": 51,
+  "confidence": 13.7,
+  "rows": [
+   {
+    "id": "C1",
+    "weight": 7,
+    "score": 50,
+    "contribution": 3.5,
+    "status": "observed",
+    "evidence": "The user reports a Gartner forecast of substantial agentic-project cancellations by 2027. This suggests governance pressure, but the source and its relevance to US SMB purchasing are unverified.",
+    "rationale": "The timing evidence is mixed; no dated enabling change establishes the readiness and entry window required for 75.",
+    "q": 0.25,
+    "a": 0.5
+   },
+   {
+    "id": "C2",
+    "weight": 12,
+    "score": 50,
+    "contribution": 6,
+    "status": "observed",
+    "evidence": "The supplied bottom-up estimate is $144M SAM, with a year-three target of approximately $1.8M ARR. The 40,000-business denominator and broader AI-agent growth forecast are uncorroborated, and the sizing switches from businesses to monitored agents.",
+    "rationale": "The opportunity is plausible for an owner-operated business, but independent alternative-spending evidence and cited segment growth required for 75 are absent.",
+    "q": 0.25,
+    "a": 0.75
+   },
+   {
+    "id": "C3",
+    "weight": 7,
+    "score": 50,
+    "contribution": 3.5,
+    "status": "MISSING",
+    "evidence": "Entry threat: unassessed. Supplier power: unassessed. Buyer power: unassessed. Substitutes: manual checks and inaction are named. Rivalry: Braintrust and LangSmith are named, but their alleged SMB shortcomings are unverified.",
+    "rationale": "The material does not establish the balance of all five forces; 50 is imputed rather than an observed mixed structure.",
+    "q": null,
+    "a": null
+   },
+   {
+    "id": "C4",
+    "weight": 5,
+    "score": 50,
+    "contribution": 2.5,
+    "status": "MISSING",
+    "evidence": "No controlled proprietary asset, switching-cost mechanism, exclusive access, or tested imitation barrier is supplied.",
+    "rationale": "Defensibility is unassessed; neither a partly established mechanism nor adverse replication evidence supports an observed anchor.",
+    "q": null,
+    "a": null
+   },
+   {
+    "id": "C5",
+    "weight": 8,
+    "score": 50,
+    "contribution": 4,
+    "status": "observed",
+    "evidence": "The model identifies an SMB payer, a recurring per-agent subscription, and a clear exchange of monitoring and quality reporting for payment. Integration, onboarding, review, and ongoing service requirements are not mapped.",
+    "rationale": "The model is coherent, but understood operating requirements necessary for 75 are not demonstrated; pilot payment is scored under C11.",
+    "q": 0.25,
+    "a": 1
+   },
+   {
+    "id": "C6",
+    "weight": 8,
+    "score": 50,
+    "contribution": 4,
+    "status": "observed",
+    "evidence": "Reported monthly pricing of $299 and compute costs of approximately $40 leave $259 before other variable costs; reported CAC is $450. Support costs, fully loaded contribution, reliable retention, and fixed-cost coverage are missing.",
+    "rationale": "The preliminary arithmetic is coherent, but complete measured contribution and a costed profitability path required for 75 are absent.",
+    "q": 0.5,
+    "a": 1
+   },
+   {
+    "id": "C7",
+    "weight": 10,
+    "score": 50,
+    "contribution": 5,
+    "status": "observed",
+    "evidence": "The founder reports measurement-science experience, calibrated rubrics, continuous agent operations, three production tools, and deployment post-mortems. SMB support-domain knowledge and complementary commercial capabilities are not established.",
+    "rationale": "Relevant technical capability and learning are demonstrated by self-report, but the full domain, capability, and customer-access coverage required for 75 is incomplete.",
+    "q": 0.25,
+    "a": 0.75
+   },
+   {
+    "id": "C8",
+    "weight": 7,
+    "score": 50,
+    "contribution": 3.5,
+    "status": "MISSING",
+    "evidence": "No capacity tests, founder-hours model, onboarding effort measurements, staffing-per-agent estimates, or runway comparison are supplied.",
+    "rationale": "Delivery effort and scaling feasibility lack usable measurements; 50 is imputed.",
+    "q": null,
+    "a": null
+   },
+   {
+    "id": "C9",
+    "weight": 8,
+    "score": 50,
+    "contribution": 4,
+    "status": "MISSING",
+    "evidence": "Regulatory: data-handling obligations unexamined. Technology: logging coverage, detection accuracy, and no-code integration unvalidated. Market: platform substitution unexamined. Execution: service capacity and ownership unexamined. Financial: runway and full operating costs unknown.",
+    "rationale": "All five categories have not been examined with documented mitigations, so 50 is imputed rather than an observed risk-register assessment.",
+    "q": null,
+    "a": null
+   },
+   {
+    "id": "C10",
+    "weight": 8,
+    "score": 50,
+    "contribution": 4,
+    "status": "MISSING",
+    "evidence": "Named alternatives establish candidate competitors, but no usable independent evidence of customer spending, competitor revenue, category budgets, or repeat purchasing is supplied.",
+    "rationale": "Market spending is unestablished in the supplied evidence; 50 is imputed independently of founder traction.",
+    "q": null,
+    "a": null
+   },
+   {
+    "id": "C11",
+    "weight": 4,
+    "score": 75,
+    "contribution": 3,
+    "status": "observed",
+    "evidence": "The founder reports five four-week SMB trials and three paid conversions at $299 per month, attributed to detected hallucinations. The claimed 60-day retention cannot be reconciled with a September 2026 pilot and an October 10 assessment date.",
+    "rationale": "Reported paid pilots and sustained trial use support 75, but replicated cohorts, reliable retention, expansion, and contradiction checks required for 100 are absent.",
+    "q": 0.25,
+    "a": 1
+   },
+   {
+    "id": "C12",
+    "weight": 5,
+    "score": 50,
+    "contribution": 2.5,
+    "status": "MISSING",
+    "evidence": "Available capital, capital required to profitability, founder runway, and financing commitments are not stated.",
+    "rationale": "Capital and financing fit cannot be assessed; 50 is imputed without assuming either affordability or a funding shortfall.",
+    "q": null,
+    "a": null
+   },
+   {
+    "id": "C13",
+    "weight": 3,
+    "score": 50,
+    "contribution": 1.5,
+    "status": "MISSING",
+    "evidence": "No strategic acquirers, acquisition precedents, or disclosed transaction multiples are supplied.",
+    "rationale": "Exit optionality is unassessed; absence of supplied transactions does not establish an unfavorable acquisition market.",
+    "q": null,
+    "a": null
+   },
+   {
+    "id": "C14",
+    "weight": 8,
+    "score": 50,
+    "contribution": 4,
+    "status": "observed",
+    "evidence": "SMB community partnerships reportedly generated 30 acquired trials. Channel-specific conversion stages, sales cycles, partner concentration, and separate replication tests are not supplied.",
+    "rationale": "A specific channel and initial funnel support 50; separate reproducibility tests and understood sales constraints required for 75 are absent.",
+    "q": 0.25,
+    "a": 1
+   }
+  ],
+  "blockers": []
+ },
+ {
+  "name": "BAD — PetRock NFT for toddlers",
+  "score": 34,
+  "confidence": 15.1,
+  "rows": [
+   {
+    "id": "C1",
+    "weight": 7,
+    "score": 25,
+    "contribution": 1.75,
+    "status": "observed",
+    "evidence": "In the August 2026 concept test, 17 of 20 parents said their toddler could not use a phone wallet. This indicates substantial readiness friction for the proposed NFT experience.",
+    "rationale": "Target-user readiness is materially unfavorable, supporting 25 rather than 50. The evidence does not establish that launch timing is untenable throughout the horizon.",
+    "q": 0.5,
+    "a": 1
+   },
+   {
+    "id": "C2",
+    "weight": 12,
+    "score": 25,
+    "contribution": 3,
+    "status": "observed",
+    "evidence": "The user reports NFT collectible trading volume fell 93% from its 2022 peak, attributing the figure to DappRadar 2026 without providing corroboration. No addressable revenue estimate for toddler NFT packs is supplied.",
+    "rationale": "The reported decline supports an unfavorable trajectory, with substantial transfer uncertainty. A plausible SAM/SOM and partially evidenced demand depth required for 50 are absent.",
+    "q": 0.25,
+    "a": 0.5
+   },
+   {
+    "id": "C3",
+    "weight": 7,
+    "score": 25,
+    "contribution": 1.75,
+    "status": "observed",
+    "evidence": "Entry threat: apparently high for a generic image collectible, although active entrants are unverified; supplier power: unknown; buyer power: adverse because parents can switch easily; substitutes: strong, including toys, free apps and stickers; rivalry: unverified.",
+    "rationale": "Buyer choice and strong substitutes create two adverse forces without an evidenced countervailing position. Unknown supplier power and rivalry prevent a finding of hostility across all forces.",
+    "q": 0.25,
+    "a": 0.75
+   },
+   {
+    "id": "C4",
+    "weight": 5,
+    "score": 0,
+    "contribution": 0,
+    "status": "observed",
+    "evidence": "The described offer consists of AI-generated rock pictures, NFT minting, rarity tiers and sticker animations. These specified features are readily reproducible; the description supplies no resource-control or durability mechanism.",
+    "rationale": "The offer itself supports straightforward imitation. A temporary head start required for 25 is not established.",
+    "q": 0.25,
+    "a": 1
+   },
+   {
+    "id": "C5",
+    "weight": 8,
+    "score": 50,
+    "contribution": 4,
+    "status": "observed",
+    "evidence": "Parents are the identified payer, purchasing one-time blind packs that deliver collectible images and unlock animations. This defines a coherent transaction, although operating requirements remain untested.",
+    "rationale": "The payer and revenue mechanism support 50. No paid pilot or demonstrated comparable value exchange supports 75.",
+    "q": 0.25,
+    "a": 1
+   },
+   {
+    "id": "C6",
+    "weight": 8,
+    "score": 50,
+    "contribution": 4,
+    "status": "MISSING",
+    "evidence": "No pricing, variable costs, CAC, contribution LTV, payback or profitability milestones are supplied.",
+    "rationale": "The score is imputed because usable unit-economics evidence is absent.",
+    "q": null,
+    "a": null
+   },
+   {
+    "id": "C7",
+    "weight": 10,
+    "score": 0,
+    "contribution": 0,
+    "status": "observed",
+    "evidence": "The solo founder reports no software, blockchain or children's-product experience and no access to parent communities. No concrete hiring, partnership or capability-development response is supplied.",
+    "rationale": "The stated gaps cover the core capabilities needed to deliver this opportunity, with no credible response established. Useful opportunity-specific capability required for 25 is not demonstrated.",
+    "q": 0.25,
+    "a": 1
+   },
+   {
+    "id": "C8",
+    "weight": 7,
+    "score": 50,
+    "contribution": 3.5,
+    "status": "MISSING",
+    "evidence": "No delivery tests, MVP effort estimates, time-to-revenue estimates, founder time commitment or runway are supplied.",
+    "rationale": "A digital product format alone does not establish scalable delivery or runway fit; 50 is imputed.",
+    "q": null,
+    "a": null
+   },
+   {
+    "id": "C9",
+    "weight": 8,
+    "score": 25,
+    "contribution": 2,
+    "status": "observed",
+    "evidence": "Regulatory: user-reported child privacy obligations and platform restrictions, with no compliance plan; technology: feasibility and security untested; market: screen-time objections from 3 parents; execution: operating controls unexamined; financial: compliance funding and reserves unknown. The claimed guideline interpretation and two app removals are uncorroborated.",
+    "rationale": "Child privacy and platform access present substantial exposures with unproven mitigation, supporting 25. No verified prohibition or unavailable permission establishes a critical blocker at 0.",
+    "q": 0.25,
+    "a": 0.75
+   },
+   {
+    "id": "C10",
+    "weight": 8,
+    "score": 50,
+    "contribution": 4,
+    "status": "MISSING",
+    "evidence": "The supplied alternatives identify possible purchasing categories but provide no usable evidence of current spending by parents of toddlers on this problem. Broad NFT trading statistics do not establish spending in this exact segment.",
+    "rationale": "Market spending evidence is missing, so 50 is imputed. The founder's unsuccessful concept test is not used to penalize market demand reality.",
+    "q": null,
+    "a": null
+   },
+   {
+    "id": "C11",
+    "weight": 4,
+    "score": 50,
+    "contribution": 2,
+    "status": "observed",
+    "evidence": "The founder showed mockups to 20 parents, and none said they would pay. This is adverse stated-intent evidence, but no purchase opportunity, trial rejection, actual use or churn was measured.",
+    "rationale": "The normal pre-launch anchor applies because behavioral traction has not been tested. Stated unwillingness alone does not fully support the behavioral rejection anchor at 0, and no paid commitment supports 75.",
+    "q": 0.5,
+    "a": 1
+   },
+   {
+    "id": "C12",
+    "weight": 5,
+    "score": 50,
+    "contribution": 2.5,
+    "status": "MISSING",
+    "evidence": "Available capital, development budget, capital to revenue, capital to profitability and financing access are unspecified.",
+    "rationale": "Financing inadequacy cannot be inferred from missing information; 50 is imputed.",
+    "q": null,
+    "a": null
+   },
+   {
+    "id": "C13",
+    "weight": 3,
+    "score": 50,
+    "contribution": 1.5,
+    "status": "MISSING",
+    "evidence": "No strategic acquirers, acquisition precedents or transaction multiples are supplied.",
+    "rationale": "Absent exit evidence requires imputed 50, rather than an unsupported finding that acquirers do not exist.",
+    "q": null,
+    "a": null
+   },
+   {
+    "id": "C14",
+    "weight": 8,
+    "score": 50,
+    "contribution": 4,
+    "status": "MISSING",
+    "evidence": "No acquisition channel, buying funnel, channel conversion test or repeatability evidence is supplied.",
+    "rationale": "Channel performance is unknown. Founder access gaps are owned by C7 and are not deducted again here.",
+    "q": null,
+    "a": null
+   }
+  ],
+  "blockers": []
+ }
+]
