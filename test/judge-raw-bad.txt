@@ -1,0 +1,160 @@
+{
+  "criteria": [
+    {
+      "id": "C1",
+      "score": 25,
+      "status": "observed",
+      "evidence": "In the August 2026 concept test, 17 of 20 parents said their toddler could not use a phone wallet. This indicates substantial readiness friction for the proposed NFT experience.",
+      "rationale": "Target-user readiness is materially unfavorable, supporting 25 rather than 50. The evidence does not establish that launch timing is untenable throughout the horizon.",
+      "q": 0.5,
+      "a": 1.0
+    },
+    {
+      "id": "C2",
+      "score": 25,
+      "status": "observed",
+      "evidence": "The user reports NFT collectible trading volume fell 93% from its 2022 peak, attributing the figure to DappRadar 2026 without providing corroboration. No addressable revenue estimate for toddler NFT packs is supplied.",
+      "rationale": "The reported decline supports an unfavorable trajectory, with substantial transfer uncertainty. A plausible SAM/SOM and partially evidenced demand depth required for 50 are absent.",
+      "q": 0.25,
+      "a": 0.5
+    },
+    {
+      "id": "C3",
+      "score": 25,
+      "status": "observed",
+      "evidence": "Entry threat: apparently high for a generic image collectible, although active entrants are unverified; supplier power: unknown; buyer power: adverse because parents can switch easily; substitutes: strong, including toys, free apps and stickers; rivalry: unverified.",
+      "rationale": "Buyer choice and strong substitutes create two adverse forces without an evidenced countervailing position. Unknown supplier power and rivalry prevent a finding of hostility across all forces.",
+      "q": 0.25,
+      "a": 0.75
+    },
+    {
+      "id": "C4",
+      "score": 0,
+      "status": "observed",
+      "evidence": "The described offer consists of AI-generated rock pictures, NFT minting, rarity tiers and sticker animations. These specified features are readily reproducible; the description supplies no resource-control or durability mechanism.",
+      "rationale": "The offer itself supports straightforward imitation. A temporary head start required for 25 is not established.",
+      "q": 0.25,
+      "a": 1.0
+    },
+    {
+      "id": "C5",
+      "score": 50,
+      "status": "observed",
+      "evidence": "Parents are the identified payer, purchasing one-time blind packs that deliver collectible images and unlock animations. This defines a coherent transaction, although operating requirements remain untested.",
+      "rationale": "The payer and revenue mechanism support 50. No paid pilot or demonstrated comparable value exchange supports 75.",
+      "q": 0.25,
+      "a": 1.0
+    },
+    {
+      "id": "C6",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "No pricing, variable costs, CAC, contribution LTV, payback or profitability milestones are supplied.",
+      "rationale": "The score is imputed because usable unit-economics evidence is absent.",
+      "q": 0,
+      "a": 0
+    },
+    {
+      "id": "C7",
+      "score": 0,
+      "status": "observed",
+      "evidence": "The solo founder reports no software, blockchain or children's-product experience and no access to parent communities. No concrete hiring, partnership or capability-development response is supplied.",
+      "rationale": "The stated gaps cover the core capabilities needed to deliver this opportunity, with no credible response established. Useful opportunity-specific capability required for 25 is not demonstrated.",
+      "q": 0.25,
+      "a": 1.0
+    },
+    {
+      "id": "C8",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "No delivery tests, MVP effort estimates, time-to-revenue estimates, founder time commitment or runway are supplied.",
+      "rationale": "A digital product format alone does not establish scalable delivery or runway fit; 50 is imputed.",
+      "q": 0,
+      "a": 0
+    },
+    {
+      "id": "C9",
+      "score": 25,
+      "status": "observed",
+      "evidence": "Regulatory: user-reported child privacy obligations and platform restrictions, with no compliance plan; technology: feasibility and security untested; market: screen-time objections from 3 parents; execution: operating controls unexamined; financial: compliance funding and reserves unknown. The claimed guideline interpretation and two app removals are uncorroborated.",
+      "rationale": "Child privacy and platform access present substantial exposures with unproven mitigation, supporting 25. No verified prohibition or unavailable permission establishes a critical blocker at 0.",
+      "q": 0.25,
+      "a": 0.75
+    },
+    {
+      "id": "C10",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "The supplied alternatives identify possible purchasing categories but provide no usable evidence of current spending by parents of toddlers on this problem. Broad NFT trading statistics do not establish spending in this exact segment.",
+      "rationale": "Market spending evidence is missing, so 50 is imputed. The founder's unsuccessful concept test is not used to penalize market demand reality.",
+      "q": 0,
+      "a": 0
+    },
+    {
+      "id": "C11",
+      "score": 50,
+      "status": "observed",
+      "evidence": "The founder showed mockups to 20 parents, and none said they would pay. This is adverse stated-intent evidence, but no purchase opportunity, trial rejection, actual use or churn was measured.",
+      "rationale": "The normal pre-launch anchor applies because behavioral traction has not been tested. Stated unwillingness alone does not fully support the behavioral rejection anchor at 0, and no paid commitment supports 75.",
+      "q": 0.5,
+      "a": 1.0
+    },
+    {
+      "id": "C12",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "Available capital, development budget, capital to revenue, capital to profitability and financing access are unspecified.",
+      "rationale": "Financing inadequacy cannot be inferred from missing information; 50 is imputed.",
+      "q": 0,
+      "a": 0
+    },
+    {
+      "id": "C13",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "No strategic acquirers, acquisition precedents or transaction multiples are supplied.",
+      "rationale": "Absent exit evidence requires imputed 50, rather than an unsupported finding that acquirers do not exist.",
+      "q": 0,
+      "a": 0
+    },
+    {
+      "id": "C14",
+      "score": 50,
+      "status": "MISSING",
+      "evidence": "No acquisition channel, buying funnel, channel conversion test or repeatability evidence is supplied.",
+      "rationale": "Channel performance is unknown. Founder access gaps are owned by C7 and are not deducted again here.",
+      "q": 0,
+      "a": 0
+    }
+  ],
+  "blockers": [],
+  "strengths": [
+    "C5: An identified parent payer and explicit pack purchase mechanism make the proposed transaction coherent.",
+    "C11: A directly matched concept test provides useful negative learning, although it establishes no behavioral traction."
+  ],
+  "weaknesses": [
+    "C4: The specified features offer straightforward imitation and no established durability mechanism.",
+    "C7: The founder lacks the core technical, children's-product and customer-access capabilities, with no concrete response.",
+    "C9: Child privacy and platform access exposures lack an evidenced compliance or mitigation plan."
+  ],
+  "validation_priorities": [
+    {
+      "question": "Will parents make a real financial commitment to this exact product?",
+      "hypothesis": "A parent-operated experience can generate purchases despite the negative mockup responses.",
+      "observable": "A transparent, parent-only reservation test with a stated price, refundable payment and predefined qualified sample; measure completed payments and refund requests.",
+      "decision": "Set a minimum conversion threshold from provisional unit economics before testing; stop or redesign if paid conversion falls below it."
+    },
+    {
+      "question": "Can the proposed child-directed NFT and blind-pack experience meet platform and privacy requirements?",
+      "hypothesis": "A parent-managed architecture can satisfy applicable distribution and child privacy requirements within an affordable budget.",
+      "observable": "A documented review of current platform rules and launch-market requirements, identifying required permissions, data flows, safeguards, costs and unresolved restrictions.",
+      "decision": "Proceed only with a feasible, costed compliance path; remove or redesign features that prevent distribution."
+    },
+    {
+      "question": "Can attainable parent spending support a venture-scale business with profitable acquisition?",
+      "hypothesis": "A sufficiently large reachable segment will buy packs at prices that cover acquisition and full variable costs.",
+      "observable": "Bottom-up sizing using independently evidenced parent spending, plus priced demand tests and a cost model covering acquisition, content, minting, platform fees, support and compliance.",
+      "decision": "Continue toward the venture objective only if bounded SOM and downside economics support it; otherwise change the objective or product."
+    }
+  ]
+}
