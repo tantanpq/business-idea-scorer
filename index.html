@@ -51,8 +51,11 @@
 <body>
 <div class="wrap">
   <h1>📊 Business Idea Scorer</h1>
-  <div class="sub">Evidence-based 0–100 assessment across 14 criteria. Decision support — not a prediction.</div>
-  <div class="badge" id="specBadge">SPEC V3 · APPROVED 2026-10-10 · weights provisional, not simlab-calibrated</div>
+  <div class="sub">Evidence-based 0–100 assessment across 15 criteria. Decision support — not a prediction.</div>
+  <div class="badge" id="specBadge">SPEC V4 · APPROVED 2026-10-10 (revised after simlab) · F3 weight uncalibrated</div>
+  <div style="margin-top:10px;padding:10px 12px;border:1px solid var(--warn);border-radius:8px;font-size:.82rem;color:var(--warn)">
+    <b>Cost of conservatism:</b> at a 65 cutoff, this tool would have rejected Airbnb (45.3), Stripe (59.0), Figma (47.5) and Calendly (40.3) at founding. It filters bad ideas well; it cannot identify winners. A sub-65 score is not a kill signal for a category-creating idea.
+  </div>
 
   <div class="card">
     <h2>1 · Your idea</h2>
@@ -141,6 +144,10 @@
     </div>
     <h3 style="font-size:.95rem;margin:18px 0 4px">🔬 Validation priorities</h3>
     <div id="r_vp"></div>
+    <h3 style="font-size:.95rem;margin:18px 0 4px">📈 Asymmetric upside</h3>
+    <div id="r_upside"></div>
+    <h3 style="font-size:.95rem;margin:18px 0 4px">🎯 Tracked bets <span style="font-size:.75rem;color:var(--dim)">(open bets add zero points — they exist so nothing is forgotten)</span></h3>
+    <div id="r_bets"></div>
     <div class="disclaimer">
       <b>Read this:</b> the score is structured decision support, <b>not</b> a probability of success, investment recommendation, or valuation.
       Criteria with no evidence are imputed at 50 and marked MISSING — that is neutral, not proof of average quality.
@@ -208,7 +215,7 @@ async function runScoring() {
   const inp = collectInputs();
   if (!inp.description) { status.innerHTML = '<span class="err">Please describe your idea first.</span>'; return; }
   const btn = $("btnScore"); btn.disabled = true;
-  status.textContent = "Asking the AI judge to evaluate 14 criteria… (this takes ~60–90s)";
+  status.textContent = "Asking the AI judge to evaluate 15 criteria… (this takes ~60–90s)";
   try {
     const prompt = BizIdeaPrompt.buildPrompt(inp);
     const resp = await fetch(baseurl + "/chat/completions", {
@@ -249,7 +256,7 @@ function renderResults(inp, r, model) {
   $("r_factors").textContent = `Coverage ${r.coverage.toFixed(1)}% × Quality ${r.quality.toFixed(1)}% × Applicability ${r.applicability.toFixed(1)}%`;
   $("r_bounds").textContent = r.wMissing > 0
     ? `Missing-data bounds: ${r.bounds.lower.toFixed(1)}–${r.bounds.upper.toFixed(1)} (${r.wMissing} pts of weight imputed)`
-    : "All 10 criteria observed — no imputation.";
+    : "All 15 criteria observed — no imputation.";
   $("r_blockers").innerHTML = (r.blockers||[]).map(b =>
     `<div class="blocker">⛔ <b>CRITICAL BLOCKER:</b> ${escapeHtml(b)}</div>`).join("");
   const tbl = $("r_table");
@@ -264,6 +271,11 @@ function renderResults(inp, r, model) {
   $("r_strong").innerHTML = (r.strengths||[]).map(s=>`<li>${escapeHtml(s)}</li>`).join("") || "<li>—</li>";
   $("r_weak").innerHTML = (r.weaknesses||[]).map(s=>`<li>${escapeHtml(s)}</li>`).join("") || "<li>—</li>";
   $("r_vp").innerHTML = (r.validationPriorities||[]).map((v,i)=>`<div class="vp"><b>${i+1}. ${escapeHtml(v.question||"")}</b><br>Hypothesis: ${escapeHtml(v.hypothesis||"")}<br>Observable: ${escapeHtml(v.observable||"")}<br>Decision: ${escapeHtml(v.decision||"")}</div>`).join("") || "<div>—</div>";
+  const au = r.asymmetricUpside;
+  $("r_upside").innerHTML = au
+    ? `<div class="vp"><b>${escapeHtml(au.bet_class||"")}</b> — ${escapeHtml(au.conditional_payoff||"")}<br><span style="color:var(--dim)">Key uncertainty:</span> ${escapeHtml(au.key_uncertainty||"")}<br><span style="color:var(--dim)">If wrong:</span> ${escapeHtml(au.loss_if_wrong||"")} &nbsp;·&nbsp; <span style="color:var(--dim)">If right:</span> ${escapeHtml(au.win_if_right||"")}</div>`
+    : "<div>—</div>";
+  $("r_bets").innerHTML = (r.trackedBets||[]).map((b,i)=>`<div class="vp"><b>${escapeHtml(b.id||("B"+(i+1)))}.</b> ${escapeHtml(b.hypothesis||"")}<br><span style="color:var(--dim)">Trigger:</span> ${escapeHtml(b.cheap_trigger||"")} &nbsp;·&nbsp; <span style="color:var(--dim)">Re-score:</span> ${escapeHtml(b.re_score_date||"")} &nbsp;·&nbsp; <span style="color:var(--dim)">Linked:</span> ${escapeHtml(b.linked_criterion||"")}</div>`).join("") || "<div>—</div>";
   const calib = {
     spec: BizIdeaPrompt.SPEC_VERSION, date: inp.date, idea: inp.title,
     scope: { customer: inp.customer, geography: inp.geography, businessModel: inp.businessModel, stage: inp.stage, horizon: inp.horizon, objective: inp.objective },
@@ -271,7 +283,8 @@ function renderResults(inp, r, model) {
     coverage: r.coverage, quality: r.quality, applicability: r.applicability,
     bounds: r.bounds,
     criteria: r.rows.map(x => ({ id: x.id, weight: x.weight, score: x.score, status: x.status, q: x.q, a: x.a })),
-    blockers: r.blockers, judge_model: model, outcome: "pending"
+    blockers: r.blockers, judge_model: model, outcome: "pending",
+    asymmetric_upside: r.asymmetricUpside, tracked_bets: r.trackedBets
   };
   $("r_calib").textContent = JSON.stringify(calib, null, 1);
   $("resultsCard").scrollIntoView({ behavior: "smooth" });
