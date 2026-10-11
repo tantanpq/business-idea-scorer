@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Business Idea Scorer — evidence-based 0–100</title>
+<style>
+  :root { --bg:#0f1420; --card:#182032; --line:#2a3550; --txt:#e8edf7; --dim:#9aa7c2; --acc:#5aa2ff; --good:#3ddc84; --warn:#ffb020; --bad:#ff5a5a; }
+  * { box-sizing:border-box; }
+  body { margin:0; font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; background:var(--bg); color:var(--txt); }
+  .wrap { max-width:960px; margin:0 auto; padding:24px 16px 80px; }
+  h1 { font-size:1.6rem; margin:0 0 4px; }
+  .sub { color:var(--dim); font-size:.9rem; margin-bottom:20px; }
+  .badge { display:inline-block; font-size:.72rem; background:#1e2a44; border:1px solid var(--line); border-radius:20px; padding:3px 10px; color:var(--dim); margin-bottom:14px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:18px; margin-bottom:16px; }
+  .card h2 { font-size:1.05rem; margin:0 0 12px; }
+  label { display:block; font-size:.82rem; color:var(--dim); margin:12px 0 4px; }
+  input[type=text], textarea, select { width:100%; background:#0d1322; border:1px solid var(--line); border-radius:8px; color:var(--txt); padding:10px; font-size:.92rem; font-family:inherit; }
+  textarea { min-height:76px; resize:vertical; }
+  .row { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+  @media (max-width:640px){ .row{ grid-template-columns:1fr; } }
+  button.primary { background:var(--acc); color:#06101f; border:none; border-radius:10px; padding:14px 28px; font-size:1rem; font-weight:700; cursor:pointer; width:100%; margin-top:8px; }
+  button.primary:disabled { opacity:.5; cursor:wait; }
+  button.ghost { background:transparent; color:var(--dim); border:1px solid var(--line); border-radius:8px; padding:8px 14px; cursor:pointer; font-size:.85rem; }
+  details.llm { margin-top:14px; }
+  details.llm summary { cursor:pointer; color:var(--dim); font-size:.88rem; }
+  .score-hero { display:flex; gap:24px; align-items:center; flex-wrap:wrap; }
+  .big-score { font-size:3.4rem; font-weight:800; line-height:1; }
+  .conf-bar { height:10px; background:#0d1322; border-radius:6px; overflow:hidden; margin-top:6px; }
+  .conf-fill { height:100%; background:var(--acc); }
+  table.crit { width:100%; border-collapse:collapse; font-size:.85rem; margin-top:8px; }
+  table.crit th, table.crit td { text-align:left; padding:8px 6px; border-bottom:1px solid var(--line); vertical-align:top; }
+  table.crit th { color:var(--dim); font-weight:600; font-size:.75rem; text-transform:uppercase; }
+  .pill { display:inline-block; border-radius:12px; padding:2px 9px; font-size:.75rem; font-weight:700; }
+  .p100{background:#123f2a;color:var(--good);} .p75{background:#1d3a5f;color:var(--acc);}
+  .p50{background:#3a3320;color:var(--warn);} .p25{background:#4a2323;color:#ff9a6a;} .p0{background:#4a1d1d;color:var(--bad);}
+  .miss { color:var(--warn); font-size:.75rem; font-weight:700; }
+  .obs { color:var(--dim); font-size:.75rem; }
+  .disclaimer { font-size:.8rem; color:var(--dim); background:#141b2e; border-left:3px solid var(--warn); padding:10px 14px; border-radius:0 8px 8px 0; margin-top:14px; }
+  .blocker { background:#3a1d1d; border:1px solid #6b2a2a; border-radius:8px; padding:10px 14px; margin:8px 0; font-size:.9rem; }
+  ul.tight { margin:6px 0; padding-left:20px; font-size:.9rem; }
+  ul.tight li { margin:4px 0; }
+  .vp { background:#0d1322; border:1px solid var(--line); border-radius:8px; padding:10px 14px; margin:8px 0; font-size:.88rem; }
+  .vp b { color:var(--acc); }
+  #status { min-height:1.4em; color:var(--dim); font-size:.88rem; margin-top:10px; }
+  .err { color:var(--bad); }
+  pre.calib { background:#0d1322; border:1px solid var(--line); border-radius:8px; padding:12px; font-size:.75rem; overflow:auto; max-height:220px; }
+  .hidden { display:none; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>📊 Business Idea Scorer</h1>
+  <div class="sub">Evidence-based 0–100 assessment across 14 criteria. Decision support — not a prediction.</div>
+  <div class="badge" id="specBadge">SPEC V3 · APPROVED 2026-10-10 · weights provisional, not simlab-calibrated</div>
+
+  <div class="card">
+    <h2>1 · Your idea</h2>
+    <label>Idea title</label>
+    <input type="text" id="f_title" placeholder="e.g. AI booking assistant for nail salons">
+    <label>What is it? (2–5 sentences)</label>
+    <textarea id="f_description" placeholder="Describe the product/service and what makes it different."></textarea>
+    <div class="row">
+      <div><label>Customer / payer</label><input type="text" id="f_customer" placeholder="e.g. nail salon owners in California"></div>
+      <div><label>Geography</label><input type="text" id="f_geography" placeholder="e.g. US West Coast"></div>
+    </div>
+    <label>The problem (why does the customer care?)</label>
+    <textarea id="f_problem" placeholder="What painful, frequent, expensive problem does this solve?"></textarea>
+    <label>Proposed solution</label>
+    <textarea id="f_solution" placeholder="How does it solve the problem?"></textarea>
+    <label>Alternatives the customer has today</label>
+    <input type="text" id="f_alternatives" placeholder="e.g. phone booking, Booksy, doing nothing">
+    <div class="row">
+      <div><label>Business model</label>
+        <select id="f_businessModel">
+          <option>Subscription (SaaS)</option><option>Transaction / commission</option>
+          <option>Marketplace</option><option>One-time product sale</option>
+          <option>Service / agency</option><option>Advertising</option><option>Other / hybrid</option>
+        </select></div>
+      <div><label>Stage</label>
+        <select id="f_stage">
+          <option>Concept (no build yet)</option><option>Prototype / MVP</option>
+          <option>Launched, pre-revenue</option><option>Early revenue</option><option>Growing</option>
+        </select></div>
+    </div>
+    <div class="row">
+      <div><label>Commercialization horizon</label>
+        <select id="f_horizon">
+          <option>1–2 years</option><option selected>3–5 years</option><option>5+ years</option>
+        </select></div>
+      <div><label>Commercial objective</label>
+        <select id="f_objective">
+          <option>Durable owner-operated business</option><option>Venture-scale company</option>
+        </select></div>
+    </div>
+    <label>Your / team background <span style="opacity:.7">(for founder-market fit — skills, domain experience, customer access)</span></label>
+    <textarea id="f_founder" placeholder="e.g. 5 years running a nail salon; built 2 Shopify apps"></textarea>
+    <label>Capital available / financing situation <span style="opacity:.7">(for capital requirements scoring)</span></label>
+    <input type="text" id="f_capital" placeholder="e.g. $20k savings, bootstrap; or seeking $300k seed">
+    <label>Evidence you have <span style="opacity:.7">(market numbers, interviews, pilots, costs, channels — with dates/sources if possible)</span></label>
+    <textarea id="f_evidence" placeholder="Anything that backs up (or challenges) the idea. Leave blank if none — missing evidence is scored neutrally, not as failure."></textarea>
+
+    <h3 style="font-size:.95rem;margin:18px 0 4px">🔍 Deep research <span style="opacity:.7;font-weight:400">(recommended — the tool researches the market before scoring)</span></h3>
+    <p style="font-size:.82rem;color:var(--dim)">Generate a research plan, run the searches yourself (or with your AI assistant), then paste the findings below with sources and dates. Researched facts with sources score higher quality than unsupported claims.</p>
+    <button class="ghost" id="btnResearch" onclick="showResearchPlan()">Generate research plan</button>
+    <div id="researchPlan" style="margin-top:10px;font-size:.82rem"></div>
+    <label>Research findings <span style="opacity:.7">(one fact per line: [criterion] fact (Source: url, accessed date))</span></label>
+    <textarea id="f_research" rows="5" placeholder="- [C2] AI agent market $10.9B (2026) → $42B by 2030 (Source: Grand View, accessed 2026-10-10)"></textarea>
+
+    <details class="llm">
+      <summary>⚙️ AI judge settings (your own API key — stored only in this browser)</summary>
+      <label>API base URL (OpenAI-compatible)</label>
+      <input type="text" id="f_baseurl" placeholder="https://api.openai.com/v1">
+      <label>API key</label>
+      <input type="text" id="f_apikey" placeholder="sk-..." autocomplete="off">
+      <label>Model</label>
+      <input type="text" id="f_model" placeholder="gpt-4o-mini">
+    </details>
+
+    <button class="primary" id="btnScore" onclick="runScoring()">Score this idea</button>
+    <div id="status"></div>
+  </div>
+
+  <div class="card hidden" id="resultsCard">
+    <h2>2 · Assessment</h2>
+    <div class="score-hero">
+      <div><div class="big-score" id="r_score">–</div><div class="sub">/ 100</div></div>
+      <div style="flex:1;min-width:220px">
+        <div style="font-size:.85rem">Confidence <b id="r_conf">–</b></div>
+        <div class="conf-bar"><div class="conf-fill" id="r_conffill" style="width:0%"></div></div>
+        <div style="font-size:.78rem;color:var(--dim);margin-top:6px" id="r_factors"></div>
+        <div style="font-size:.78rem;color:var(--dim)" id="r_bounds"></div>
+      </div>
+    </div>
+    <div id="r_blockers"></div>
+    <h3 style="font-size:.95rem;margin:18px 0 4px">Criterion breakdown</h3>
+    <div style="overflow-x:auto"><table class="crit" id="r_table"></table></div>
+    <div class="row" style="margin-top:14px">
+      <div><h3 style="font-size:.95rem;margin:0 0 4px">💪 Strongest</h3><ul class="tight" id="r_strong"></ul></div>
+      <div><h3 style="font-size:.95rem;margin:0 0 4px">⚠️ Weakest</h3><ul class="tight" id="r_weak"></ul></div>
+    </div>
+    <h3 style="font-size:.95rem;margin:18px 0 4px">🔬 Validation priorities</h3>
+    <div id="r_vp"></div>
+    <div class="disclaimer">
+      <b>Read this:</b> the score is structured decision support, <b>not</b> a probability of success, investment recommendation, or valuation.
+      Criteria with no evidence are imputed at 50 and marked MISSING — that is neutral, not proof of average quality.
+      Confidence is separate from Score; never multiply them. Missing-data bounds show how much unobserved criteria could move the total.
+    </div>
+    <h3 style="font-size:.95rem;margin:18px 0 4px">📋 Calibration record <button class="ghost" onclick="copyCalib()">Copy JSON</button></h3>
+    <pre class="calib" id="r_calib"></pre>
+  </div>
+</div>
+
+<script src="prompt-builder.js"></script>
+<script src="scoring-math.js"></script>
+<script src="deep-research.js"></script>
+<script>
+const $ = id => document.getElementById(id);
+// restore settings
+["f_baseurl","f_apikey","f_model"].forEach(k => { try { const v = localStorage.getItem("bizidea_"+k); if (v) $(k).value = v; } catch(e){} });
+
+function collectInputs() {
+  const v = id => $(id).value.trim();
+  return {
+    title: v("f_title") || "(untitled idea)",
+    description: v("f_description"),
+    customer: v("f_customer"),
+    geography: v("f_geography"),
+    problem: v("f_problem"),
+    solution: v("f_solution"),
+    alternatives: v("f_alternatives"),
+    businessModel: v("f_businessModel"),
+    stage: v("f_stage"),
+    horizon: v("f_horizon"),
+    objective: v("f_objective"),
+    founder: v("f_founder"),
+    capital: v("f_capital"),
+    evidence: v("f_evidence"),
+    researchEvidence: BizIdeaResearch.formatResearchEvidence(
+      v("f_research").split("\n").map(l => l.trim()).filter(Boolean).map(l => {
+        const m = l.match(/^\[?(C\d+)\]?[\s:–-]+(.*)$/);
+        return m ? { criterion: m[1], fact: m[2], source: "user-pasted", date: new Date().toISOString().slice(0,10) }
+                 : { criterion: "?", fact: l, source: "user-pasted", date: new Date().toISOString().slice(0,10) };
+      })
+    ),
+    date: new Date().toISOString().slice(0,10)
+  };
+}
+
+function showResearchPlan() {
+  const inp = collectInputs();
+  const plan = BizIdeaResearch.buildResearchPlan(inp);
+  const html = plan.map(p =>
+    `<div style="margin:8px 0"><b>${p.criterion}</b> — <span style="color:var(--dim)">${p.want}</span><br>` +
+    p.queries.map(qv => `<span style="color:var(--acc)">• ${qv}</span>`).join("<br>") + `</div>`
+  ).join("");
+  $("researchPlan").innerHTML = html +
+    `<p style="color:var(--dim);font-size:.78rem;margin-top:8px">${BizIdeaResearch.EVIDENCE_RULES.join(" ")}</p>`;
+}
+
+async function runScoring() {
+  const baseurl = $("f_baseurl").value.trim().replace(/\/+$/,"");
+  const apikey = $("f_apikey").value.trim();
+  const model = $("f_model").value.trim() || "gpt-4o-mini";
+  ["f_baseurl","f_apikey","f_model"].forEach(k => { try { localStorage.setItem("bizidea_"+k, $(k).value); } catch(e){} });
+  const status = $("status");
+  if (!baseurl || !apikey) { status.innerHTML = '<span class="err">Please set API base URL and API key in AI judge settings.</span>'; return; }
+  const inp = collectInputs();
+  if (!inp.description) { status.innerHTML = '<span class="err">Please describe your idea first.</span>'; return; }
+  const btn = $("btnScore"); btn.disabled = true;
+  status.textContent = "Asking the AI judge to evaluate 14 criteria… (this takes ~60–90s)";
+  try {
+    const prompt = BizIdeaPrompt.buildPrompt(inp);
+    const resp = await fetch(baseurl + "/chat/completions", {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Authorization": "Bearer " + apikey },
+      body: JSON.stringify({
+        model,
+        messages: [
+          { role: "system", content: "You are a strict evidence-based business idea evaluator. Output ONLY valid JSON matching the required schema. No markdown, no commentary." },
+          { role: "user", content: prompt }
+        ],
+        temperature: 0.2,
+        response_format: { type: "json_object" }
+      })
+    });
+    if (!resp.ok) throw new Error("API error " + resp.status + ": " + (await resp.text()).slice(0,300));
+    const data = await resp.json();
+    let text = data.choices && data.choices[0] && data.choices[0].message && data.choices[0].message.content || "";
+    text = text.replace(/^```json\s*/,"").replace(/```\s*$/,"").trim();
+    const llm = JSON.parse(text);
+    const r = BizIdeaMath.computeResults(llm);
+    renderResults(inp, r, model);
+    status.textContent = "Done.";
+  } catch (e) {
+    status.innerHTML = '<span class="err">Failed: ' + escapeHtml(String(e.message || e)).slice(0,500) + "</span>";
+  } finally { btn.disabled = false; }
+}
+
+function escapeHtml(s){ return s.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c])); }
+
+function renderResults(inp, r, model) {
+  $("resultsCard").classList.remove("hidden");
+  const sc = $("r_score");
+  sc.textContent = r.score.toFixed(1);
+  sc.style.color = r.score >= 70 ? "var(--good)" : r.score >= 50 ? "var(--warn)" : "var(--bad)";
+  $("r_conf").textContent = r.confidence.toFixed(1) + "%";
+  $("r_conffill").style.width = Math.max(2, r.confidence) + "%";
+  $("r_factors").textContent = `Coverage ${r.coverage.toFixed(1)}% × Quality ${r.quality.toFixed(1)}% × Applicability ${r.applicability.toFixed(1)}%`;
+  $("r_bounds").textContent = r.wMissing > 0
+    ? `Missing-data bounds: ${r.bounds.lower.toFixed(1)}–${r.bounds.upper.toFixed(1)} (${r.wMissing} pts of weight imputed)`
+    : "All 10 criteria observed — no imputation.";
+  $("r_blockers").innerHTML = (r.blockers||[]).map(b =>
+    `<div class="blocker">⛔ <b>CRITICAL BLOCKER:</b> ${escapeHtml(b)}</div>`).join("");
+  const tbl = $("r_table");
+  tbl.innerHTML = `<tr><th>ID</th><th>Criterion (w)</th><th>Score</th><th>Contrib.</th><th>Evidence / rationale</th><th>Status</th></tr>` +
+    r.rows.map(x => `<tr>
+      <td><b>${x.id}</b></td><td>${critName(x.id)} <span style="color:var(--dim)">(${x.weight})</span></td>
+      <td><span class="pill p${x.score}">${x.score}</span></td>
+      <td>${x.contribution.toFixed(1)}</td>
+      <td style="font-size:.8rem"><div>${escapeHtml(x.evidence)}</div><div style="color:var(--dim)">${escapeHtml(x.rationale)}</div>${x.q!==null?`<div style="color:var(--dim)">q=${x.q} · a=${x.a}</div>`:""}</td>
+      <td>${x.status==="MISSING"?'<span class="miss">MISSING</span>':'<span class="obs">observed</span>'}</td>
+    </tr>`).join("");
+  $("r_strong").innerHTML = (r.strengths||[]).map(s=>`<li>${escapeHtml(s)}</li>`).join("") || "<li>—</li>";
+  $("r_weak").innerHTML = (r.weaknesses||[]).map(s=>`<li>${escapeHtml(s)}</li>`).join("") || "<li>—</li>";
+  $("r_vp").innerHTML = (r.validationPriorities||[]).map((v,i)=>`<div class="vp"><b>${i+1}. ${escapeHtml(v.question||"")}</b><br>Hypothesis: ${escapeHtml(v.hypothesis||"")}<br>Observable: ${escapeHtml(v.observable||"")}<br>Decision: ${escapeHtml(v.decision||"")}</div>`).join("") || "<div>—</div>";
+  const calib = {
+    spec: BizIdeaPrompt.SPEC_VERSION, date: inp.date, idea: inp.title,
+    scope: { customer: inp.customer, geography: inp.geography, businessModel: inp.businessModel, stage: inp.stage, horizon: inp.horizon, objective: inp.objective },
+    score: r.score, confidence: r.confidence,
+    coverage: r.coverage, quality: r.quality, applicability: r.applicability,
+    bounds: r.bounds,
+    criteria: r.rows.map(x => ({ id: x.id, weight: x.weight, score: x.score, status: x.status, q: x.q, a: x.a })),
+    blockers: r.blockers, judge_model: model, outcome: "pending"
+  };
+  $("r_calib").textContent = JSON.stringify(calib, null, 1);
+  $("resultsCard").scrollIntoView({ behavior: "smooth" });
+  if (r.errors && r.errors.length) $("status").innerHTML = '<span class="err">Note: ' + escapeHtml(r.errors.join("; ")) + "</span>";
+}
+
+function critName(id){
+  const c = BizIdeaPrompt.CRITERIA.find(x => x.id === id);
+  return c ? c.name : id;
+}
+function copyCalib(){
+  navigator.clipboard.writeText($("r_calib").textContent).then(()=>{ $("status").textContent = "Calibration record copied."; });
+}
+</script>
+</body>
+</html>
