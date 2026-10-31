@@ -1,4 +1,4 @@
-/* Business Idea Scoring — deep research protocol (SPEC V3, approved 2026-10-10)
+/* Business Idea Scoring — deep research protocol (protocol drafted under SPEC V3, approved 2026-10-10; the tool now implements SPEC V4)
  * The tool must RESEARCH before scoring, not just score user input.
  * This module: (1) generates targeted search queries per criterion from the idea input,
  * (2) defines the evidence schema each researched fact must carry,

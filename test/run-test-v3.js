@@ -3,7 +3,7 @@
  * ZERO founder traction must NOT be unfairly punished.
  * GOOD idea: strong market demand reality (C10), no traction (C11=50, weight 4).
  * BAD idea: weak market + adverse evidence.
- * Uses Codex CLI as the LLM judge. SPEC V3 PROPOSAL (not yet approved).
+ * Uses Codex CLI as the LLM judge. Historical V3-era test; the tool now implements SPEC V4.
  */
 const { execFileSync } = require("child_process");
 const fs = require("fs");
@@ -13,7 +13,7 @@ const PB = require("../prompt-builder.js");
 const BM = require("../scoring-math.js");
 const DR = require("../deep-research.js");
 
-const CODEX = "/home/hatch/workspace/bin/codex";
+const CODEX = process.env.CODEX_BIN || "codex";
 
 const IDEAS = [
   {

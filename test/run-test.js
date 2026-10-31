@@ -10,7 +10,7 @@ const path = require("path");
 const PB = require("../prompt-builder.js");
 const BM = require("../scoring-math.js");
 
-const CODEX = "/home/hatch/workspace/bin/codex";
+const CODEX = process.env.CODEX_BIN || "codex";
 
 const IDEAS = [
   {

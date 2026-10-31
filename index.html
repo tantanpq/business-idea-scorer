@@ -238,7 +238,7 @@ async function runScoring() {
     const llm = JSON.parse(text);
     const r = BizIdeaMath.computeResults(llm);
     renderResults(inp, r, model);
-    status.textContent = "Done.";
+    if (!r.errors.length) status.textContent = "Done.";
   } catch (e) {
     status.innerHTML = '<span class="err">Failed: ' + escapeHtml(String(e.message || e)).slice(0,500) + "</span>";
   } finally { btn.disabled = false; }

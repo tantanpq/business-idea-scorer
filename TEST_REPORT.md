@@ -1,3 +1,6 @@
+> **ADDENDUM 2026-10-30 — the tool now implements SPEC V4.** 15 criteria (C1–C14 + F3), weights 7/12/7/4/7/8/10/7/6/8/4/5/2/7/6 = 100 (approved by Tán 2026-10-10, revised after simlab; F3 provisional, uncalibrated). The V3 report below is retained as history.
+> Also fixed 2026-10-30: criteria absent from judge output are imputed at 50 per the V4 missing-data rule instead of being dropped from the denominator — regression coverage in `test/test-missing-imputation.js` (deterministic, no LLM needed).
+
 # Test Report — Business Idea Scorer tool (V3, approved 2026-10-10)
 **Date:** 2026-10-10
 **Tool:** `~/workspace/business-idea-tool/` (index.html + prompt-builder.js + scoring-math.js + deep-research.js)

@@ -6,6 +6,9 @@
  * UNCALIBRATED (simlab could not validate a forward-looking criterion on a
  * backward-looking fixture). Part A (Asymmetric Upside + Tracked Bets) is handled
  * in prompt-builder.js output contract, not in the math.
+ * Missing-data rule (SPEC V4 §4): a criterion that is absent from the judge
+ * output, or flagged MISSING, is imputed at 50 with its full weight retained —
+ * it is NEVER dropped from the denominator.
  * Shared by: index.html (browser) and test/run-test.js (node).
  */
 (function (root, factory) {
@@ -21,15 +24,39 @@ function computeResults(llm) {
   const rows = [];
   const errors = [];
   for (const id of ORDER) {
+    const w = WEIGHTS[id];
     const c = (llm.criteria || []).find(x => x.id === id);
-    if (!c) { errors.push(`missing criterion ${id} in LLM output`); continue; }
-    let score = Number(c.score);
-    if (!VALID_SCORES.includes(score)) {
-      errors.push(`${id}: score ${c.score} not a valid anchor — coerced to nearest`);
-      score = VALID_SCORES.reduce((a, b) => Math.abs(b - score) < Math.abs(a - score) ? b : a);
+    if (!c) {
+      // SPEC V4 missing-data rule: a criterion the judge did not return at all is
+      // imputed at 50 and marked MISSING — never dropped from the denominator.
+      errors.push(`${id}: absent from judge output — imputed at 50 (MISSING)`);
+      rows.push({
+        id, weight: w, score: 50,
+        contribution: w * 50 / 100,
+        status: "MISSING",
+        evidence: "",
+        rationale: "Imputed at 50 — criterion absent from judge output (SPEC V4 missing-data rule).",
+        q: null,
+        a: null
+      });
+      continue;
     }
     const observed = String(c.status || "").toLowerCase() !== "missing";
-    const w = WEIGHTS[id];
+    let score;
+    if (!observed) {
+      // Judge flagged the criterion MISSING: SPEC imputes 50 regardless of any
+      // score value supplied alongside the flag.
+      if (c.score !== undefined && Number(c.score) !== 50) {
+        errors.push(`${id}: judge flagged MISSING with score ${c.score} — SPEC imputes 50`);
+      }
+      score = 50;
+    } else {
+      score = Number(c.score);
+      if (!VALID_SCORES.includes(score)) {
+        errors.push(`${id}: score ${c.score} not a valid anchor — coerced to nearest`);
+        score = VALID_SCORES.reduce((a, b) => Math.abs(b - score) < Math.abs(a - score) ? b : a);
+      }
+    }
     const q = observed ? clamp01(Number(c.q)) : 0;
     const a = observed ? clamp01(Number(c.a)) : 0;
     rows.push({
