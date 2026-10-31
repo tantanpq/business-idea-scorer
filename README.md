@@ -45,3 +45,11 @@ The app is a single static page; the only runtime dependency is the user's own L
 
 `node test/run-test.js` — runs 2 sample ideas (1 strong, 1 weak) through Codex CLI as the judge and checks score discrimination (gap ≥ 15). See `TEST_REPORT.md`.
 `node test/test-missing-imputation.js` — deterministic regression test for the SPEC V4 missing-data rule (judge-omitted or MISSING-flagged criteria are imputed at 50, never dropped from the denominator).
+
+## Support
+
+This project is built and maintained independently, in the open. If it saves you time, you can support its development with a voluntary donation:
+
+**[Support PAI / Zline via Stripe](https://donate.stripe.com/5kQ6oG7YIcWdf51cUv7bW05)**
+
+Support is a donation, not a purchase — no product or service is delivered in return, and everything here stays free either way.
