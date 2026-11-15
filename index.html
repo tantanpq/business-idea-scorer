@@ -111,11 +111,14 @@
     <textarea id="f_research" rows="5" placeholder="- [C2] AI agent market $10.9B (2026) → $42B by 2030 (Source: Grand View, accessed 2026-10-10)"></textarea>
 
     <details class="llm">
-      <summary>⚙️ AI judge settings (your own API key — stored only in this browser)</summary>
+      <summary>⚙️ AI judge settings (your own API key — kept for this tab by default)</summary>
       <label>API base URL (OpenAI-compatible)</label>
       <input type="text" id="f_baseurl" placeholder="https://api.openai.com/v1">
-      <label>API key</label>
+      <label for="f_apikey">API key</label>
       <input type="text" id="f_apikey" placeholder="sk-..." autocomplete="off">
+      <label for="f_remember_apikey"><input type="checkbox" id="f_remember_apikey" aria-describedby="apiKeyWarning"> Remember on this device</label>
+      <div class="obs" id="apiKeyWarning">If enabled, your API key is stored in this browser across sessions. Other people using this browser may access it. Leave unchecked to keep it for this tab only.</div>
+      <div class="obs" id="apiKeyStorageStatus" role="status"></div>
       <label>Model</label>
       <input type="text" id="f_model" placeholder="gpt-4o-mini">
     </details>
@@ -161,10 +164,25 @@
 <script src="prompt-builder.js"></script>
 <script src="scoring-math.js"></script>
 <script src="deep-research.js"></script>
+<script src="api-key-storage.js"></script>
 <script>
 const $ = id => document.getElementById(id);
 // restore settings
-["f_baseurl","f_apikey","f_model"].forEach(k => { try { const v = localStorage.getItem("bizidea_"+k); if (v) $(k).value = v; } catch(e){} });
+["f_baseurl","f_model"].forEach(k => { try { const v = localStorage.getItem("bizidea_"+k); if (v) $(k).value = v; } catch(e){} });
+const apiKeyStore = BizIdeaKeyStorage.createStore(name => window[name]);
+const apiKeyState = apiKeyStore.read();
+$("f_apikey").value = apiKeyState.key;
+$("f_remember_apikey").checked = apiKeyState.remember;
+function saveApiKey() {
+  const requested = $("f_remember_apikey").checked;
+  const state = apiKeyStore.save($("f_apikey").value.trim(), requested);
+  $("f_remember_apikey").checked = state.remember;
+  $("apiKeyStorageStatus").textContent = requested && state.key && !state.remember
+    ? "Your browser could not remember the key. It is available for this tab only."
+    : "";
+}
+$("f_apikey").addEventListener("input", saveApiKey);
+$("f_remember_apikey").addEventListener("change", saveApiKey);
 
 function collectInputs() {
   const v = id => $(id).value.trim();
@@ -209,7 +227,8 @@ async function runScoring() {
   const baseurl = $("f_baseurl").value.trim().replace(/\/+$/,"");
   const apikey = $("f_apikey").value.trim();
   const model = $("f_model").value.trim() || "gpt-4o-mini";
-  ["f_baseurl","f_apikey","f_model"].forEach(k => { try { localStorage.setItem("bizidea_"+k, $(k).value); } catch(e){} });
+  ["f_baseurl","f_model"].forEach(k => { try { localStorage.setItem("bizidea_"+k, $(k).value); } catch(e){} });
+  saveApiKey();
   const status = $("status");
   if (!baseurl || !apikey) { status.innerHTML = '<span class="err">Please set API base URL and API key in AI judge settings.</span>'; return; }
   const inp = collectInputs();
