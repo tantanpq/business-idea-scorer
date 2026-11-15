@@ -54,6 +54,7 @@ The app is a single static page; the only runtime dependency is the user's own L
 
 `node test/run-test.js` — runs 2 sample ideas (1 strong, 1 weak) through Codex CLI as the judge and checks score discrimination (gap ≥ 15). See `TEST_REPORT.md`.
 `node test/test-missing-imputation.js` — deterministic regression test for the SPEC V4 missing-data rule (judge-omitted or MISSING-flagged criteria are imputed at 50, never dropped from the denominator).
+`node --test test/test-c14-strict.js` — deterministic regression tests for the owner-approved C14 rule: scores above 50 require actual results from separate channel tests; a testable hypothesis alone is capped at 50.
 
 `node --test test/test-api-key-storage.js` - deterministic storage-helper and page-wiring regression tests (fake keys, no network).
 
