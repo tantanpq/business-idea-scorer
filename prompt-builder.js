@@ -134,12 +134,12 @@ const CRITERIA = [
       "100": "Active acquirer market with recent precedents at strong multiples; the idea maps to a known 'missing piece' for 2+ named strategics."
     } },
   { id: "C14", name: "Go-to-market access & repeatability", weight: 7,
-    ownership: "Reachable customers, conversion process, and repeatable channels. A named distribution hypothesis testable within the validation budget ('hypothesis + test defined' in Tracked Bets) may anchor 75 instead of defaulting to 50 — 50-and-forget is not permitted when a testable hypothesis exists.",
+    ownership: "Reachable customers, conversion process, and repeatable channels. Scores of 75 or 100 require real, separate channel tests with actual evidence from tests run on each channel. A testable hypothesis alone, even with a test defined within the validation budget, is capped at 50; record it in Tracked Bets with a cheap validation trigger and re-score date. Without channel test evidence, C14 cannot exceed 50.",
     anchors: {
       "0": "Evidence shows that the proposed route cannot reach or convert the required buyers, with no credible alternative.",
       "25": "Some access exists, but acquisition is ad hoc or dependent on exceptional founder connections.",
-      "50": "A specific channel and buying process are evidenced, with an initial funnel but uncertain repeatability.",
-      "75": "Separate channel tests demonstrate a reproducible process with understood conversion stages and sales-cycle constraints.",
+      "50": "A specific channel and buying process are evidenced, with an initial funnel but uncertain repeatability. A testable hypothesis alone is capped at 50, with the planned test recorded in Tracked Bets.",
+      "75": "Real, separate channel tests, with actual evidence from tests run on each channel, demonstrate a reproducible process with understood conversion stages and sales-cycle constraints.",
       "100": "The principal route remains reproducible across relevant cohorts, with credible resilience to concentration or access changes."
     } },
   { id: "F3", name: "Category trajectory forecast — 3–5y (UNCALIBRATED)", weight: 6,
