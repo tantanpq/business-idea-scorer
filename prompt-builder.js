@@ -138,9 +138,9 @@ const CRITERIA = [
     anchors: {
       "0": "Evidence shows that the proposed route cannot reach or convert the required buyers, with no credible alternative.",
       "25": "Some access exists, but acquisition is ad hoc or dependent on exceptional founder connections.",
-      "50": "A specific channel and buying process are evidenced, with an initial funnel but uncertain repeatability. A testable hypothesis alone is capped at 50, with the planned test recorded in Tracked Bets.",
+      "50": "A specific channel and buying process are evidenced, with an initial funnel but uncertain repeatability. Alternatively, a testable hypothesis alone is capped at 50, with the planned test recorded in Tracked Bets.",
       "75": "Real, separate channel tests, with actual evidence from tests run on each channel, demonstrate a reproducible process with understood conversion stages and sales-cycle constraints.",
-      "100": "The principal route remains reproducible across relevant cohorts, with credible resilience to concentration or access changes."
+      "100": "Meets the 75 evidence requirement (actual evidence from tests run on each channel), and the principal route remains reproducible across relevant cohorts, with credible resilience to concentration or access changes."
     } },
   { id: "F3", name: "Category trajectory forecast — 3–5y (UNCALIBRATED)", weight: 6,
     ownership: "Quality of the FORECAST DISCIPLINE for this exact category: cost curves, adoption leading indicators, fixed policy dates. Forecast inputs, not outputs. Score the method, never optimism. This criterion's weight (6) is the founder's decision but explicitly UNCALIBRATED — simlab could not validate a forward-looking criterion on a backward-looking fixture.",

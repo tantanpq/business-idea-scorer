@@ -18,6 +18,15 @@ test("C14 caps a testable hypothesis at 50 and keeps it in Tracked Bets", () => 
   assert.match(c14.anchors[50], /testable hypothesis alone is capped at 50/);
 });
 
+test("C14 anchor 50 keeps the evidenced-funnel case and states the hypothesis cap as an alternative", () => {
+  assert.match(c14.anchors[50], /^A specific channel and buying process are evidenced, with an initial funnel but uncertain repeatability\. Alternatively, /);
+});
+
+test("C14 anchor 100 also requires the per-channel test evidence", () => {
+  assert.match(c14.anchors[100], /^Meets the 75 evidence requirement \(actual evidence from tests run on each channel\)/);
+  assert.match(c14.anchors[100], /reproducible across relevant cohorts.*resilience to concentration or access changes/);
+});
+
 test("C14 anchor 75 requires executed tests with results for each channel", () => {
   assert.match(c14.anchors[75], /Real, separate channel tests/);
   assert.match(c14.anchors[75], /actual evidence from tests run on each channel/);
